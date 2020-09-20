@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # encoding: utf-8
 
-from setuptools import setup, find_packages
+from setuptools import setup
 
 setup(
     name="blueprint",
@@ -12,6 +12,19 @@ setup(
     description="A python blueprint",
     packages=["blueprint"],
     package_dir={"": "src"},
-    extras_require={"dev": ["ipython","ipdb" ,"pytest", "pytest-cov", "black"]},
+    # dependencies are to be added to ./requirements.txt
+    requires=["click"],
+    extras_require={
+        "dev": [
+            "bandit",
+            "black",
+            "flake8",
+            "ipdb",
+            "ipython",
+            "neovim",
+            "pylint",
+            "pytest-cov",
+        ]
+    },
     entry_points={"console_scripts": ["blueprint=blueprint.cli:cli"]},
 )

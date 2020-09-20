@@ -1,0 +1,11 @@
+# Add any new requirement to setup.py
+# this file is used by Dockerfile to install dependencies beforehand
+
+black
+click
+flake8
+ipdb 
+ipython
+pylint
+pytest
+pytest-cov

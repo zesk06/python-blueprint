@@ -27,3 +27,21 @@ venv:  ## create the virtualenv
 	@python3 -m venv ~/.virtualenvs/${PROJECT}
 	@echo "Done -- now please workon ${PROJECT}"
 
+install:
+	@echo "install stuff"
+	@pip3 install -e ."[dev]"
+
+docker:
+	@echo "Creating docker image"
+	@docker build -f dev.Dockerfile .
+	@echo "docker image built"
+
+lint:
+	@echo "Linting - pylint"
+	@echo "Linting - flake8"
+	@flake8
+	@echo "Linting - bandit"
+	@bandit src/blueprint
+
+test:
+	@py.test
